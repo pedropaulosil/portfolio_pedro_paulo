@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedro Paulo — Desenvolvedor back-end</title>
+  <meta name="description" content="Portfólio de Pedro Paulo, estudante de Análise e Desenvolvimento de Sistemas na FATEC Mogi das Cruzes. Projetos em Java, Spring Boot, React e JavaScript.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pedro Paulo — Desenvolvedor back-end">
+  <meta property="og:description" content="Projetos em Java, Spring Boot, React e JavaScript.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23fff'/%3E%3Ctext x='16' y='24' font-size='22' font-weight='800' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' fill='%23000'%3EP%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <a class="skip" href="#sobre">Pular para o conteúdo</a>
+
+  <header class="top" id="top">
+    <a class="brand" href="#inicio">Pedro Paulo</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Principal">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#resumo">Resumo</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <h1>
+        <span class="line" style="--i:0"><span>Pedro</span></span>
+        <span class="line" style="--i:1"><span>Paulo</span></span>
+      </h1>
+      <p class="role">Desenvolvedor back-end e estudante de Análise e Desenvolvimento de Sistemas.</p>
+      <div class="actions">
+        <a class="btn primary" href="#sobre">Saiba mais</a>
+        <a class="btn" href="#portfolio">Ver projetos</a>
+      </div>
+      <ul class="social" aria-label="Redes">
+        <li>
+          <a href="https://github.com/pedropaulosil" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.38 7.86 10.9.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/pedro-paulo-oliveira06/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="sobre" aria-labelledby="sobre-titulo">
+      <h2 id="sobre-titulo">Um pouco sobre o meu trabalho</h2>
+      <div class="about">
+        <div class="about-text">
+          <p>
+            Estudo Análise e Desenvolvimento de Sistemas na FATEC Mogi das Cruzes e trabalho principalmente com
+            back-end: Java, Spring Boot, JPA e MySQL.
+          </p>
+          <p>
+            Gosto de entender os problemas reaais e procurar soluções eficientes para estes. Sempre buscando entender o fluxo inteiro do sistema,
+            para conseguir entregar o resultado que melhor se adeque às necessidades do cliente.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#contato">Entre em contato</a>
+          </div>
+        </div>
+        <div class="about-side">
+          <h3>Perfil</h3>
+          <dl class="profile">
+            <div><dt>Nome</dt><dd>Pedro Paulo</dd></div>
+            <div><dt>Cargo</dt><dd>Desenvolvedor back-end em formação</dd></div>
+            <div><dt>Formação</dt><dd>ADS, FATEC Mogi das Cruzes</dd></div>
+            <div><dt>Local</dt><dd>Mogi das Cruzes, SP</dd></div>
+            <div><dt>GitHub</dt><dd><a href="https://github.com/pedropaulosil" target="_blank" rel="noopener">github.com/pedropaulosil</a></dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="stack" id="stack"></div>
+    </section>
+
+    <section class="section" id="resumo" aria-labelledby="resumo-titulo">
+      <h2 id="resumo-titulo">Minha trajetória até aqui</h2>
+      <ol class="timeline">
+        <li>
+          <time>2025 a 2028 (previsto)</time>
+          <h3>Análise e Desenvolvimento de Sistemas</h3>
+          <p>FATEC Mogi das Cruzes. Graduação tecnológica em andamento, com foco em desenvolvimento de software.</p>
+        </li>
+        <li>
+          <time>Em andamento</time>
+          <h3>Inglês</h3>
+          <p>Nível avançado, usado no dia a dia para ler documentação e código.</p>
+        </li>
+        <li>
+          <time>Cursos de Java</time>
+          <h3>Java Foundations e Java Fundamentals</h3>
+          <p>Atividades dos dois cursos publicadas no GitHub, a base para os projetos com Spring Boot.</p>
+        </li>
+      </ol>
+
+      <div class="services">
+        <h2>O que eu faço</h2>
+        <div class="service-grid">
+          <article>
+            <h3>APIs REST</h3>
+            <p>Back-ends com Java, Spring Boot e JPA, com autenticação JWT e banco de dados MySQL.</p>
+          </article>
+          <article>
+            <h3>Aplicações web</h3>
+            <p>Interfaces em React ou JavaScript puro conversando com a API, do cadastro ao dashboard.</p>
+          </article>
+          <article>
+            <h3>Do código ao ar</h3>
+            <p>Versionamento com Git e GitHub e publicação do projeto para que outras pessoas possam usar.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="counters">
+        <div><strong data-count="4">0</strong><span>projetos em destaque</span></div>
+        <div><strong id="repo-count" data-count="24">0</strong><span>repositórios públicos no GitHub</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio" aria-labelledby="portfolio-titulo">
+      <div class="section-head">
+        <h2 id="portfolio-titulo">Confira alguns projetos</h2>
+        <p>Clique em um projeto para ver os detalhes.</p>
+      </div>
+      <ul class="grid" id="projects"></ul>
+      <noscript><p class="muted">Ative o JavaScript para ver os projetos, ou acesse <a href="https://github.com/pedropaulosil">github.com/pedropaulosil</a>.</p></noscript>
+    </section>
+
+    <section class="section contact" id="contato" aria-labelledby="contato-titulo">
+      <h2 id="contato-titulo">Vamos lá?</h2>
+      <p class="lead">Se você tem uma vaga de estágio ou júnior, ou quer trocar uma ideia sobre algum projeto, me chame.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://www.linkedin.com/in/pedro-paulo-oliveira06/" target="_blank" rel="noopener">Falar no LinkedIn</a>
+        <a class="btn" href="https://github.com/pedropaulosil" target="_blank" rel="noopener">Ver o GitHub</a>
+        <button class="btn" id="copy-email" type="button" hidden></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© <span id="year">2026</span> Pedro Paulo</span>
+    <a href="#inicio">Voltar ao início</a>
+  </footer>
+
+  <dialog id="modal" aria-labelledby="modal-title">
+    <div class="modal-body" id="modal-body"></div>
+    <button class="modal-close" id="modal-close" type="button" aria-label="Fechar">Fechar</button>
+  </dialog>
+  <div id="live" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>
