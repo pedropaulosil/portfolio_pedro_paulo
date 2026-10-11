@@ -222,3 +222,149 @@ dialog[open]::backdrop { animation: fadeIn 0.3s ease; }
   *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
   .line > span { transform: none; }
 }
+
+
+/* ==========================================================================
+   Interações dos botões
+   ========================================================================== */
+
+/* Botões: varredura de cor a partir do ponto onde o mouse entra, imã, pressão e onda no clique */
+:is(.btn, .social a, .menu-btn, .modal-close) {
+  overflow: hidden;
+  isolation: isolate;
+  transform: translate(var(--mx, 0px), var(--my, 0px)) scale(var(--s, 1));
+  transition: color 0.3s ease 0.06s, border-color 0.3s, transform 0.25s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+:is(.btn, .social a, .menu-btn) { position: relative; }
+
+:is(.btn, .social a, .menu-btn, .modal-close)::before {
+  content: '';
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  width: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: width 0.55s var(--ease);
+  z-index: -1;
+}
+:is(.btn, .social a, .menu-btn, .modal-close):is(:hover, :focus-visible)::before { width: 260%; }
+:is(.btn, .social a, .menu-btn, .modal-close):is(:hover, :focus-visible) { color: #000; }
+:is(.btn, .social a, .menu-btn, .modal-close):active { --s: 0.94; }
+
+/* Os estilos antigos de hover trocavam o fundo; agora quem troca é a varredura */
+.btn:hover, .btn.primary:hover, .modal-close:hover, .social a:hover { background: transparent; }
+.btn { background: transparent; }
+.btn.primary { background: #fff; color: #000; }
+.btn.primary::before { background: #000; }
+.btn.primary:is(:hover, :focus-visible) { color: #fff; }
+.modal-close { background: #000; }
+.menu-btn { background: #000; }
+.social a { border-color: var(--line); }
+.social a:hover { border-color: #fff; }
+
+/* Onda criada no clique */
+.ripple {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.28;
+  pointer-events: none;
+  transform: scale(0);
+  animation: ripple 0.65s ease-out forwards;
+  z-index: 0;
+}
+@keyframes ripple { to { transform: scale(14); opacity: 0; } }
+
+/* Cards de projeto: inclinam seguindo o mouse e afundam ao clicar */
+.tile {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--s, 1));
+  transition: border-color 0.3s, transform 0.6s var(--ease);
+  will-change: transform;
+}
+.tile:hover { --ty: -5px; transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--s, 1)); transition: border-color 0.3s, transform 0.12s ease-out; }
+.tile:active { --s: 0.985; }
+.tile:focus-visible { --ty: -5px; }
+
+/* Links do menu: sublinhado que desliza */
+.top nav a { position: relative; }
+.top nav a::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -5px;
+  height: 2px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.top nav a:hover::after, .top nav a.active::after, .top nav a:focus-visible::after { transform: scaleX(1); }
+
+/* Links do rodapé e marca */
+.foot a { position: relative; }
+.foot a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease); }
+.foot a:hover::after, .foot a:focus-visible::after { transform: scaleX(1); }
+.brand { display: inline-block; transition: transform 0.3s var(--ease); }
+.brand:hover { transform: translateX(3px); }
+.brand:active { transform: scale(0.96); }
+
+@media (max-width: 800px) {
+  .top nav a::after { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ripple { display: none; }
+  :is(.btn, .social a, .menu-btn, .modal-close), .tile { transform: none !important; }
+}
+
+
+/* ==========================================================================
+   Interações do Sobre: tecnologias, cartão de perfil e links
+   ========================================================================== */
+
+/* Tecnologias: mesma varredura de cor, ímã e onda dos botões, com um pulinho de entrada */
+.stack .chip {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: default;
+  transform: translate(var(--mx, 0px), var(--my, 0px)) scale(var(--s, 1));
+  transition: color 0.3s ease 0.05s, border-color 0.3s, transform 0.25s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.stack .chip::before {
+  content: '';
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  width: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s var(--ease);
+  z-index: -1;
+}
+.stack .chip:hover { color: #000; border-color: #fff; --s: 1.06; }
+.stack .chip:hover::before { width: 300%; }
+.stack .chip:active { --s: 0.94; }
+
+/* Cartão de perfil: borda acende, linhas deslizam e o GitHub ganha sublinhado animado */
+.about-side { transition: border-color 0.3s, background 0.3s, transform 0.5s var(--ease); }
+.about-side:hover { border-color: #fff; background: rgba(255, 255, 255, 0.09); transform: translateY(-4px); }
+.profile div { transition: padding-left 0.35s var(--ease), background 0.3s; }
+.profile div:hover { padding-left: 0.6rem; background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent); }
+.profile div:hover dt { color: #fff; }
+.profile a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 2px no-repeat; transition: background-size 0.4s var(--ease), color 0.3s; }
+.profile a:hover, .profile a:focus-visible { background-size: 0% 2px; background-position: 100% 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stack .chip { transform: none !important; }
+  .about-side:hover { transform: none; }
+}

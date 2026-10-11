@@ -324,9 +324,70 @@
     $('#year').textContent = new Date().getFullYear();
   }
 
+  /* ------------------------ Interações dos botões ------------------------ */
+  function setupInteractions() {
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const BUTTONS = '.btn, .social a, .menu-btn, .modal-close, .stack .chip';
+    const closest = (target, selector) => (target instanceof Element ? target.closest(selector) : null);
+
+    document.addEventListener('pointermove', (e) => {
+      const button = closest(e.target, BUTTONS);
+      if (button) {
+        const r = button.getBoundingClientRect();
+        // Ponto de onde a varredura de cor nasce
+        button.style.setProperty('--x', `${e.clientX - r.left}px`);
+        button.style.setProperty('--y', `${e.clientY - r.top}px`);
+        // Efeito de ímã: o botão acompanha o cursor um pouco
+        if (fine && !reduceMotion && e.pointerType === 'mouse') {
+          const mx = ((e.clientX - r.left) / r.width - 0.5) * 12;
+          const my = ((e.clientY - r.top) / r.height - 0.5) * 10;
+          button.style.setProperty('--mx', `${mx.toFixed(1)}px`);
+          button.style.setProperty('--my', `${my.toFixed(1)}px`);
+        }
+      }
+
+      const tile = closest(e.target, '.tile');
+      if (tile && fine && !reduceMotion && e.pointerType === 'mouse') {
+        const r = tile.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        tile.style.setProperty('--ry', `${(px * 7).toFixed(2)}deg`);
+        tile.style.setProperty('--rx', `${(-py * 7).toFixed(2)}deg`);
+      }
+    }, { passive: true });
+
+    document.addEventListener('pointerout', (e) => {
+      const button = closest(e.target, BUTTONS);
+      if (button && !button.contains(e.relatedTarget)) {
+        button.style.setProperty('--mx', '0px');
+        button.style.setProperty('--my', '0px');
+      }
+      const tile = closest(e.target, '.tile');
+      if (tile && !tile.contains(e.relatedTarget)) {
+        tile.style.setProperty('--rx', '0deg');
+        tile.style.setProperty('--ry', '0deg');
+      }
+    });
+
+    // Onda no ponto do clique
+    document.addEventListener('pointerdown', (e) => {
+      if (reduceMotion) return;
+      const button = closest(e.target, BUTTONS);
+      if (!button) return;
+      const r = button.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.left = `${e.clientX - r.left}px`;
+      ripple.style.top = `${e.clientY - r.top}px`;
+      button.append(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  }
+
   /* -------------------------------- Início -------------------------------- */
   async function init() {
     setupChrome();
+    setupInteractions();
     initBackground();
     const countersDone = setupCounters();
 
