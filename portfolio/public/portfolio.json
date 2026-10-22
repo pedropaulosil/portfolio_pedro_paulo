@@ -1,0 +1,63 @@
+{
+  "email": "",
+  "repoCountFallback": 24,
+  "stack": [
+    { "group": "Back-end", "items": ["Java", "Spring Boot", "Spring Data JPA", "Maven", "Python", "C", "C++"] },
+    { "group": "Front-end", "items": ["JavaScript", "React", "HTML", "CSS", "Bootstrap"] },
+    { "group": "Dados e ferramentas", "items": ["MySQL", "Git", "GitHub"] }
+  ],
+  "projects": [
+    {
+      "title": "RotinApp",
+      "repo": "RotinApp",
+      "summary": "Aplicação web para organizar rotina, tarefas e agenda, com criação de tarefas por texto e por voz usando IA.",
+      "tags": ["Java 21", "Spring Boot", "React", "JWT"],
+      "highlights": [
+        "Cadastro, login e autenticação com JWT",
+        "Tarefas com categorias, prioridades, busca e filtros por status",
+        "Calendário semanal e dashboard de produtividade",
+        "Criação de tarefas a partir de texto ou voz com IA"
+      ],
+      "pattern": "rings",
+      "links": [{ "label": "Ver código no GitHub", "url": "https://github.com/pedropaulosil/RotinApp" }]
+    },
+    {
+      "title": "Gastos Residenciais",
+      "repo": "",
+      "summary": "Projeto para registrar e acompanhar os gastos de uma casa.",
+      "tags": ["Controle de gastos"],
+      "highlights": [],
+      "pattern": "grid",
+      "links": [{ "label": "Ver no GitHub", "url": "https://github.com/pedropaulosil?tab=repositories" }]
+    },
+    {
+      "title": "API Security",
+      "repo": "API_Security",
+      "summary": "Repositório de estudos sobre segurança em APIs.",
+      "tags": ["APIs", "Segurança"],
+      "highlights": [],
+      "pattern": "stripes",
+      "links": [{ "label": "Ver código no GitHub", "url": "https://github.com/pedropaulosil/API_Security" }]
+    },
+    {
+      
+  "title": "MAX SHOP System E-commerce",
+  "repo": "max-shop-platform",
+  "summary": "Plataforma completa de e-commerce com área do cliente e painel administrativo avançado para gestão de estoque, auditoria e vendas.",
+  "tags": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "PostgreSQL", "Tailwind CSS"],
+  "highlights": [
+    "Frontend moderno desenvolvido com Next.js 15 e React 19",
+    "API robusta em Java 21 com Spring Boot 3",
+    "Autenticação e controle de acesso por perfis utilizando JWT",
+    "Persistência de dados adaptável com H2 (desenvolvimento) e PostgreSQL (produção)"
+  ],
+  "pattern": "dots",
+  "links": [
+    {
+      "label": "Ver código no GitHub",
+      "url": "https://github.com/pedropaulosil/Max-Shop-System-E-commerce"
+    }
+      ]
+   }
+  ]
+}
